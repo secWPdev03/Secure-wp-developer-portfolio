@@ -184,7 +184,7 @@
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%\"'#&_(),.;:?!\\|{}<>[]^~";
 
     function resizeCanvas() {
-    
+        // Prevent reset on vertical scroll (mobile address bar toggle)
         if (window.innerWidth === lastWidth && drops) return;
 
         lastWidth = window.innerWidth;
@@ -193,7 +193,7 @@
         columns = Math.floor(width / fontSize);
         drops = [];
         for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
+            drops[i] = 1; // Back to classic synchronized start
         }
     }
 
