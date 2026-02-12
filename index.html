@@ -179,10 +179,15 @@
     const ctx = canvas.getContext('2d');
 
     let width, height, columns, drops;
+    let lastWidth = window.innerWidth; 
     const fontSize = 16;
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%\"'#&_(),.;:?!\\|{}<>[]^~";
 
     function resizeCanvas() {
+    
+        if (window.innerWidth === lastWidth && drops) return;
+
+        lastWidth = window.innerWidth;
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
         columns = Math.floor(width / fontSize);
